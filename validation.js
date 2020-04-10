@@ -28,6 +28,18 @@ function validerFormulaire() {
     }
     // vous pouvez insérer d'autres éléments de validation ici
 
+    function validertel() {
+        var tel = document.querySelector("#tel").value;
+        var taille_maxi_tel=10
+        if (!verifierTaille(tel, taille_maxi_tel)){
+            return false;
+        } else if (!verifierCaracteresInterdits(tel)) {
+            (0-9 test  == false)}        
+            return false;
+        } else {
+            return true;
+        }
+
     // si aucune erreur n'a été trouvée, on arrive ici
     return true;
 }
@@ -37,11 +49,9 @@ function validerNom() {
     var nom = document.querySelector("#name").value;
     var taille_mini_nom=3
     if (!verifierTaille(nom, taille_mini_nom)){
-        alert(`le nom doit contenir au moins ${taille_mini_nom} caractères`);
         return false;
     } else if (!verifierCaracteresInterdits(nom)) {
         // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits
-        alert(`le nom ne peut pas contenir de caractères interdits`);
         return false;
     } else {
         return true;
@@ -52,7 +62,6 @@ function validerNom() {
 function validerMessage(){
     var message = document.querySelector("#msg").value; 
     if (!verifierCaracteresInterdits(message)) {
-        alert(`le message ne peut pas contenir de caractères interdits`);
         return false;
     } else {
         return true;
