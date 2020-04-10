@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // on bloque l'envoi du formulaire vers le serveur..
         event.preventDefault();
         if (!validerFormulaire()) {
-            alert("des erreurs ont été trouvées");
+            <p>des erreurs ont été trouvées</p>;
         } else {
-            alert("Le formulaire est correct, on envoie au serveur !");
+            <p>>Le formulaire est correct, on envoie au serveur </p>;
             document.querySelector("#formulaire").submit();
         }
 
@@ -26,6 +26,8 @@ function validerFormulaire() {
     if (!validerMessage()){
         return false;
     }
+}
+
     // vous pouvez insérer d'autres éléments de validation ici
 
     function validertel() {
@@ -34,9 +36,11 @@ function validerFormulaire() {
         if (!verifierTaille(tel, taille_maxi_tel)){
             return false;
         } else if (!verifierCaracteresInterdits(tel)) {
-            (0-9 test  == false)}        
+            //(0-9 test  == false)} 
+            <p>Ces carractéres sont interdits</p>       
             return false;
         } else {
+            <p>Ces carractéres sont validé(s)</p> 
             return true;
         }
 
@@ -49,11 +53,14 @@ function validerNom() {
     var nom = document.querySelector("#name").value;
     var taille_mini_nom=3
     if (!verifierTaille(nom, taille_mini_nom)){
+        <p>Ces carractéres sont interdits</p>  
         return false;
     } else if (!verifierCaracteresInterdits(nom)) {
         // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits
+        <p>Ces carractéres sont interdits</p>
         return false;
     } else {
+        <p>Ces carractéres sont validé(s)</p>    
         return true;
     }
 }
@@ -62,8 +69,10 @@ function validerNom() {
 function validerMessage(){
     var message = document.querySelector("#msg").value; 
     if (!verifierCaracteresInterdits(message)) {
+        <p>Ces carractéres sont interdits</p>    
         return false;
     } else {
+        <p>Ces carractéres sont validé(s)</p> 
         return true;
     }
 }
@@ -71,8 +80,10 @@ function validerMessage(){
 // la chaine doivent avoir une taille d'au moins la taille fournie
 function verifierTaille(chaine, taille_mini_chaine) {
     if (chaine.length < taille_mini_chaine) {
+        <p>Ces carractéres sont interdits</p>  
         return false;
     }else{
+        <p>Ces carractéres sont validé(s)</p> 
         return true;
     }
 }
@@ -85,7 +96,9 @@ function verifierTaille(chaine, taille_mini_chaine) {
 function verifierCaracteresInterdits(chaine){
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
     if(/^[a-zA-Z0-9 ']*$/.test(chaine) == false){
+        <p>Ces carractéres sont interdits</p>
         return false;
     }
+    <p>Ces carractéres sont validé(s)</p> 
     return true;
 };
