@@ -26,6 +26,11 @@ function validerFormulaire() {
     if (!validerMessage()){
         return false;
     }
+
+    if (!validertel()){
+        return false;
+    }
+
 }
 
     // vous pouvez insérer d'autres éléments de validation ici
@@ -43,6 +48,20 @@ function validerFormulaire() {
             <p>Ces carractéres sont validé(s)</p> 
             return true;
         }
+
+        function fits(x, y) {
+            if (Number.isInteger(y / x)) {
+              return 'Fits!';
+            }
+            return 'Does NOT fit!';
+          }
+          
+          console.log(fits(5, 10));
+          // expected output: "Fits!"
+          
+          console.log(fits(5, 11));
+          // expected output: "Does NOT fit!"
+              
 
     // si aucune erreur n'a été trouvée, on arrive ici
     return true;
