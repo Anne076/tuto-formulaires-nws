@@ -27,9 +27,11 @@ function validerFormulaire() {
         return false;
     }
 
-    if (!validertel()){
+     if (!validertel()){
         return false;
     }
+
+
 
 }
 
@@ -40,27 +42,19 @@ function validerFormulaire() {
         var taille_maxi_tel=10
         if (!verifierTaille(tel, taille_maxi_tel)){
             return false;
-        } else if (!verifierCaracteresInterdits(tel)) {
+        } else if (Number.isInteger(tel)) {
             //(0-9 test  == false)} 
-            <p>Ces carractéres sont interdits</p>       
-            return false;
-        } else {
-            <p>Ces carractéres sont validé(s)</p> 
-            return true;
-        }
-
-        function fits(x, y) {
-            if (Number.isInteger(y / x)) {
-              return 'Fits!';
+   
+              return 'true';
             }
-            return 'Does NOT fit!';
+            return 'false';
           }
           
-          console.log(fits(5, 10));
-          // expected output: "Fits!"
+          console.log(tel(5, 10));
+          // expected output: "True"
           
-          console.log(fits(5, 11));
-          // expected output: "Does NOT fit!"
+          console.log(tel(5, 11));
+          // expected output: "False"
               
 
     // si aucune erreur n'a été trouvée, on arrive ici
